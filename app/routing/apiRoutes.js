@@ -59,9 +59,7 @@ module.exports = function(app) {
     friendDifference = 0;
     }
   
-    var userResponse = req.body;
 
-    //console.log(userResponse);
 
     //Add the user response to the database, and return the most compatible friend
     console.log(req.body);
