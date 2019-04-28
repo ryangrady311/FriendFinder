@@ -34,8 +34,8 @@
                                 <label for="reserve-name" ><h6><b>Name (Required)</b></h6></label>
                                 <input type="text" class="form-control" id="user-name" placeholder="ex: Ryan Grady">
                                 <br>
-                                <label for="reserve-name"><h6><b>Link to Photo Image (Optional)</b></h6></label>
-                                <input type="text" class="form-control" id="user-photo">
+                                <label for="reserve-name"><h6><b>Link to Social Media Page (Optional)</b></h6></label>
+                                <input type="text" class="form-control" id="user-social">
                             </div>
                             <hr>
                             <label for="reserve-name"><h3><b>Question 1</b></h3></label>
@@ -190,7 +190,7 @@
         // Here we grab the form elements
         var newFriend = {
             userName: $("#user-name").val().trim(),
-            userPicture: $("#user-photo").val().trim(),
+            userSocial: $("#user-social").val().trim(),
             questionResponses: [parseInt($("#Question1Response").val()), parseInt($("#Question2Response").val()), parseInt($("#Question3Response").val()), parseInt($("#Question4Response").val()), parseInt($("#Question5Response").val()), parseInt($("#Question6Response").val()) , parseInt($("#Question7Response").val()), parseInt($("#Question8Response").val()), parseInt($("#Question9Response").val()) ,parseInt($("#Question10Response").val()) ]
             
         };
@@ -204,24 +204,32 @@
 
              
                 if (data) {
-                    alert("Yay! You are officially booked!");
+
+                    if (data.userSocial != ""){
+                    alert("Congrats!  Your match is " + data.userName + "\n" + "Social Media Link: " + data.userSocial);
                     console.log(data);
+                    }
+                    else{
+                    alert("Congrats!  Your match is " + data.userName);
+                    console.log(data);
+
+                    }
                 }
 
 
                 // Clear the form when submitting
                 $("#user-name").val("");
-                $("#user-photo").val("");
-                $("#Question1Response").val("");
-                $("#Question2Response").val("");
-                $("#Question3Response").val("");
-                $("#Question4Response").val("");
-                $("#Question5Response").val("");
-                $("#Question6Response").val("");
-                $("#Question7Response").val("");
-                $("#Question8Response").val("");
-                $("#Question9Response").val("");
-                $("#Question10Response").val("");          
+                $("#user-social").val("");
+                $("#Question1Response").val("1");
+                $("#Question2Response").val("1");
+                $("#Question3Response").val("1");
+                $("#Question4Response").val("1");
+                $("#Question5Response").val("1");
+                $("#Question6Response").val("1");
+                $("#Question7Response").val("1");
+                $("#Question8Response").val("1");
+                $("#Question9Response").val("1");
+                $("#Question10Response").val("1");          
             });
         }
 

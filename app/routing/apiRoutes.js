@@ -15,38 +15,64 @@ var friendData = require("../data/friends");
 // ===============================================================================
 
 module.exports = function(app) {
-  // API GET Requests
-  // Below code handles when users "visit" a page.
-  // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-  // ---------------------------------------------------------------------------
+
 
   app.get("/api/friends", function(req, res) {
     res.json(friendData);
   });
 
 
-  // API POST Requests
-  // Below code handles when a user submits a form and thus submits data to the server.
-  // In each of the below cases, when a user submits form data (a JSON object)
-  // ...the JSON is pushed to the appropriate JavaScript array
-  // (ex. User fills out a reservation request... this data is then sent to the server...
-  // Then the server saves the data to the tableData array)
-  // ---------------------------------------------------------------------------
+  
 
   app.post("/api/friends", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    // req.body is available since we're using the body parsing middleware
-   
+    
+
+    //ADD code to get find friend compatability here here!
+    
+    for (var i=0;i<req.body.questionResponses.length;i++){
+        req.body.questionResponses[i] = parseInt(req.body.questionResponses[i]);
+    }
+    //console.log(req.body);
+
+    var friendDifference = 0;
+    var lowestFriendDifference = 100000;
+    var mostCompatibleFriend = 0;
+
+// i loops through all previous records 
+
+    for (var i=0;i<friendData.length;i++){
+
+// j loops through all each instance of the array
+
+    for (var j=0;j<req.body.questionResponses.length;j++){
+        friendDifference = friendDifference + Math.abs(friendData[i].questionResponses[j]-req.body.questionResponses[j]);
+    }
+
+//if the friend difference is lower thann the lowest friend difference, and the name doesn't equal itself, then update the most compatible friend
+
+    if (friendDifference<lowestFriendDifference && req.body.userName != friendData[i].userName){
+
+        mostCompatibleFriend = i;
+        lowestFriendDifference = friendDifference;
+    }
+
+    friendDifference = 0;
+    }
+  
+    var userResponse = req.body;
+
+    //console.log(userResponse);
+
+    //Add the user response to the database, and return the most compatible friend
+    console.log(req.body);
       friendData.push(req.body);
-      res.json("This works?");
+      res.json(friendData[mostCompatibleFriend]);
+      console.log(friendData[mostCompatibleFriend]);
+    
     
   });
 
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
+ 
 
   
 };
