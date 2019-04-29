@@ -12,19 +12,7 @@ var friendData = [
       questionResponses: [5, 2, 5, 5, 4, 5, 3, 4, 3, 4]
       
       
-    },
-    {
-        userName: "Test Low",
-        userSocial: "",
-        questionResponses: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-        
-      },
-      {
-        userName: "Test Hi",
-        userSocial: "",
-         questionResponses: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
-        
-      }
+    }
   ];
   
   // Note how we export the array. This makes it accessible to other files using require.
