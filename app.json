@@ -1,0 +1,11 @@
+
+
+{
+    "name": "FriendFinder Application",
+    "description": "A fun friendfinder app",
+    "repository": "https://github.com/ryangrady311/FriendFinder.git",
+    "logo": "",
+    "keywords": ["node", "express", "heroku"],
+    "image": ""
+  }
+  
