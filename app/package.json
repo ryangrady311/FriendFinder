@@ -11,6 +11,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "engines" : {
+    "node": "11.7.0"
+
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ryangrady311/FriendFinder.git"
