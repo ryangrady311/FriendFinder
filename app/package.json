@@ -1,0 +1,24 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "This app matches people based on compatability",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryangrady311/FriendFinder.git"
+  },
+  "author": "Ryan Grady",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryangrady311/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/ryangrady311/FriendFinder#readme"
+}
